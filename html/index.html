@@ -3,19 +3,24 @@
 <head> 
  <script src="html/angular.min.js" type="text/javascript"></script>
   <script src="html/chatWindow.js" type="text/javascript"></script>
+  <script src="html/angularui.js" type="text/javascript"></script>
 
+  <link href="html/btstrp.css" rel="stylesheet" />
+  <link href="html/chatty.css" rel="stylesheet" />
 </head>
 <body>
 	
-<div ng-controller="chatWindow" ng-init="init()"> 
- <ul class="unstyled">
-<li ng-repeat="line in messages">
-<span>{[line.msg]} </span> <span>{[line.username]} </span>
- </li>
- </ul>
-<input id="val" ng-model="msg" />
-<input id="username" ng-model="username" />
-<button ng-click="sendMsg()">Post that message!</button>
+<div id="contentBox" ng-controller="chatWindow" ng-init="init()"> 
+ <table class="table table-condensed">
+  <tr class="firstCol"> <th>Who</th><th>Texts</th> </tr>
+  <tr ng-repeat="line in messages"> 
+  	<td class="firstCol" style="width:100px">{[line.username]}  </td><td>{[line.msg]}  </td>     
+  </tr>
+</table>
+
+<input id="val" ng-model="msg" class="form-control" />
+<input id="username" ng-model="username" class="form-control" />
+<button class="btn btn-primary" ng-click="sendMsg()">Post that message!</button>
 
 </div>
 
